@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Add or Edit Task";
+}
+
+@model Movies4Joel.Models.TaskDetails
+
+<div class="text-center">
+    <br />
+    <h1 class="display-4">Add and Edit Page View</h1>
+    <p> Add or edit tasks to the Time Management Matrix by filling out and submitting a form below</p>
+    <br />
+    <form method="post">
+
+        <div asp-validation-summary="All"></div>
+
+        <label asp-for="CategoryId">Category: </label>
+        <select asp-for="CategoryId">
+            <option value="">Select a Category</option>
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+        </select> <br />
+
+        <label asp-for="Task">Task: </label>
+        <input asp-for="Task" /><br />
+
+        <label asp-for="DueDate">Due Date: </label>
+        <input asp-for="DueDate" /><br />
+
+        <label asp-for="Quadrant">Quadrant: </label>
+        <input asp-for="Quadrant" /><br />
+
+        <label asp-for="Completed">Completed: </label>
+        <select asp-for="Completed">
+            <option value="">Did you complete the task?</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select><br />
+
+        <button type="submit">Add Task</button>
+    </form>
+</div>
+
